@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://p4l05tooivig"]
+[gd_scene load_steps=6 format=3 uid="uid://p4l05tooivig"]
 
 [ext_resource type="Texture2D" uid="uid://cns3s3oidn3ue" path="res://Sprites/Dragon.png" id="1_2fs33"]
+[ext_resource type="Script" path="res://character.gd" id="1_gxnnt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdxl4"]
 bg_color = Color(0, 0, 0, 1)
@@ -15,6 +16,7 @@ outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Character" type="Node2D"]
+script = ExtResource("1_gxnnt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -0.000388147
