@@ -5,8 +5,8 @@ extends Node2D
 @export var current_health: int = 100
 @export var max_health: int = 100
 
-@export var combat_actions: Array
-@export var opponent: Node
+@export var combat_actions: Array[CombatAction]
+@export var opponent: Character
 
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var health_text: Label = $HealthBar/HealthText
