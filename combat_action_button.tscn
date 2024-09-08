@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6b6x0iioeuus"]
+
+[ext_resource type="Script" path="res://combat_action_button.gd" id="1_n5ux5"]
+
+[node name="CombatActionButton" type="Button"]
+offset_right = 120.0
+offset_bottom = 31.0
+text = "Slash (5 DMG)"
+script = ExtResource("1_n5ux5")

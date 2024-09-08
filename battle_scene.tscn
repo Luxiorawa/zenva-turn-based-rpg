@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://3j1vay45yaw7"]
+[gd_scene load_steps=11 format=3 uid="uid://3j1vay45yaw7"]
 
 [ext_resource type="Script" path="res://battle_scene.gd" id="1_atbb3"]
 [ext_resource type="PackedScene" uid="uid://p4l05tooivig" path="res://character.tscn" id="1_ixew1"]
@@ -8,22 +8,33 @@
 [ext_resource type="Texture2D" uid="uid://dwmi3y4ot078p" path="res://Sprites/Snake.png" id="4_rsyji"]
 [ext_resource type="Resource" uid="uid://cf88etfhto4bp" path="res://Combat-actions/heal.tres" id="5_k33wa"]
 [ext_resource type="Resource" uid="uid://ds3kbe64o25ob" path="res://Combat-actions/stomp.tres" id="6_s608c"]
+[ext_resource type="Resource" uid="uid://c2xqbon3mqgi5" path="res://Combat-actions/pass.tres" id="7_4w4hq"]
+[ext_resource type="Script" path="res://player_combat_actions.gd" id="9_8ey0b"]
 
-[node name="BattleScene" type="Node2D"]
+[node name="BattleScene" type="Node2D" node_paths=PackedStringArray("player_character", "enemy_character")]
 script = ExtResource("1_atbb3")
+player_character = NodePath("Player")
+enemy_character = NodePath("Enemy")
 
 [node name="Player" parent="." instance=ExtResource("1_ixew1")]
 position = Vector2(-270, 0)
 is_player = true
-combat_actions = Array[ExtResource("3_cgyu5")]([ExtResource("4_iv6pw"), ExtResource("5_k33wa"), ExtResource("6_s608c")])
+combat_actions = Array[ExtResource("3_cgyu5")]([ExtResource("4_iv6pw"), ExtResource("5_k33wa"), ExtResource("6_s608c"), ExtResource("7_4w4hq")])
 visual = ExtResource("3_2ednt")
 
 [node name="Enemy" parent="." instance=ExtResource("1_ixew1")]
 position = Vector2(275, 0)
 current_health = 50
 max_health = 50
-combat_actions = Array[ExtResource("3_cgyu5")]([ExtResource("4_iv6pw"), ExtResource("5_k33wa")])
+combat_actions = Array[ExtResource("3_cgyu5")]([ExtResource("5_k33wa"), ExtResource("4_iv6pw")])
 visual = ExtResource("4_rsyji")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(1.2, 1.2)
+
+[node name="PlayerCombatActions" type="VBoxContainer" parent="."]
+offset_left = -370.0
+offset_top = 135.0
+offset_right = -170.0
+offset_bottom = 335.0
+script = ExtResource("9_8ey0b")
